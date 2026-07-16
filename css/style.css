@@ -24,6 +24,7 @@ body {
   color: var(--text-body);
   background: var(--cream-light);
   font-weight: 300;
+  overflow-x: hidden; /* safety net against accidental horizontal overflow */
 }
 h1, h2, h3 {
   font-family: var(--font-serif);
@@ -446,7 +447,10 @@ body.intro-complete .site {
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
-  .split, .split--reverse { flex-direction: column; }
+  .split, .split--reverse { flex-direction: column; align-items: stretch; gap: 40px; }
+  /* When stacked, constrain the media to the column width so the image
+     can't push the page wider than the screen (horizontal overflow). */
+  .split__media { flex: none; width: 100%; }
   .cards { flex-direction: column; }
   .herd-media { width: 100%; margin-top: 40px; }
 }

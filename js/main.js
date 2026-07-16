@@ -48,6 +48,11 @@ links.querySelectorAll('a').forEach((link) => {
   let done = false;
   let ticking = false;
 
+  // Touch devices scrub video unreliably (iOS Safari lags/freezes), so there
+  // the intro simply plays itself through once, then blooms into the site.
+  const isTouch = window.matchMedia('(pointer: coarse)').matches;
+  if (isTouch) { initAutoplayIntro(); return; }
+
   video.addEventListener('loadedmetadata', () => {
     if (isFinite(video.duration) && video.duration > 0) duration = video.duration;
   });
@@ -107,6 +112,43 @@ links.querySelectorAll('a').forEach((link) => {
       }
     });
     if (skipScrub) intro.remove();
+  }
+
+  // ---------- Mobile: autoplay the intro once, then reveal ----------
+  function initAutoplayIntro() {
+    // No scroll scrubbing on touch — collapse the spacer and drop the hint.
+    spacer.style.height = '0px';
+    if (hint) hint.style.display = 'none';
+
+    let safety = null;
+    const finish = () => complete(false);
+
+    video.addEventListener('ended', finish);
+
+    function startPlay() {
+      const p = video.play();
+      if (p && p.catch) {
+        p.catch(() => {
+          // Autoplay blocked (e.g. iOS Low Power Mode) — invite a tap.
+          if (hint) {
+            hint.style.display = '';
+            const t = hint.querySelector('.intro__hint-text');
+            if (t) t.textContent = 'Tap to begin';
+          }
+          intro.addEventListener('click', () => { video.play(); }, { once: true });
+        });
+      }
+    }
+
+    // Once playback actually starts, arm a safety net in case 'ended' misfires.
+    video.addEventListener('play', () => {
+      if (safety) clearTimeout(safety);
+      const secs = isFinite(video.duration) && video.duration > 0 ? video.duration : 6;
+      safety = setTimeout(finish, secs * 1000 + 800);
+    });
+
+    if (video.readyState >= 2) startPlay();
+    else video.addEventListener('loadeddata', startPlay, { once: true });
   }
 
   window.addEventListener('scroll', onScroll, { passive: true });
