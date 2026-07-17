@@ -120,35 +120,34 @@ links.querySelectorAll('a').forEach((link) => {
     spacer.style.height = '0px';
     if (hint) hint.style.display = 'none';
 
-    let safety = null;
     const finish = () => complete(false);
-
     video.addEventListener('ended', finish);
+    video.addEventListener('error', finish);
 
-    function startPlay() {
-      const p = video.play();
-      if (p && p.catch) {
-        p.catch(() => {
-          // Autoplay blocked (e.g. iOS Low Power Mode) — invite a tap.
-          if (hint) {
-            hint.style.display = '';
-            const t = hint.querySelector('.intro__hint-text');
-            if (t) t.textContent = 'Tap to begin';
-          }
-          intro.addEventListener('click', () => { video.play(); }, { once: true });
-        });
-      }
-    }
-
-    // Once playback actually starts, arm a safety net in case 'ended' misfires.
+    // Hard safety net: never strand a visitor on the intro screen. Fires if the
+    // video can't play/end for any reason (blocked autoplay, decode issue, etc.).
+    let watchdog = setTimeout(finish, 9000);
     video.addEventListener('play', () => {
-      if (safety) clearTimeout(safety);
+      clearTimeout(watchdog);
       const secs = isFinite(video.duration) && video.duration > 0 ? video.duration : 6;
-      safety = setTimeout(finish, secs * 1000 + 800);
+      watchdog = setTimeout(finish, secs * 1000 + 1500);
     });
 
-    if (video.readyState >= 2) startPlay();
-    else video.addEventListener('loadeddata', startPlay, { once: true });
+    // On iOS, preload="auto" is ignored and 'loadeddata' won't fire until play()
+    // is called — so call it immediately (this is what triggers loading there).
+    video.muted = true; // required for gesture-free playback on iOS
+    const p = video.play();
+    if (p && p.catch) {
+      p.catch(() => {
+        // Autoplay blocked (e.g. iOS Low Power Mode) — invite a tap.
+        if (hint) {
+          hint.style.display = '';
+          const t = hint.querySelector('.intro__hint-text');
+          if (t) t.textContent = 'Tap to begin';
+        }
+        intro.addEventListener('click', () => { video.play(); }, { once: true });
+      });
+    }
   }
 
   window.addEventListener('scroll', onScroll, { passive: true });

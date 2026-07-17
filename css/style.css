@@ -310,7 +310,7 @@ h2 { font-size: 48px; line-height: 66px; }
   margin-top: 20px;
 }
 .footer__col { flex: 1 1 250px; display: flex; flex-direction: column; }
-.footer__col a {
+.footer__col a:not(.btn) {
   color: var(--olive-light);
   font-size: 14px;
   padding: 10px 0;
@@ -471,6 +471,8 @@ body.intro-complete .site {
   .nav__links.is-open { display: flex; }
   .nav__toggle { display: flex; }
 
+  /* Horse sits on the right of the photo — shift the crop so it's centred on narrow screens */
+  .hero__bg { object-position: 66% center; }
   .hero__content h1 { font-size: 36px; line-height: 44px; }
   h2 { font-size: 32px; line-height: 40px; }
   .section { padding: 80px 0; }
