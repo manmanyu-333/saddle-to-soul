@@ -44,6 +44,7 @@ img { display: block; max-width: 100%; }
 
 /* ---------- Photos ---------- */
 .media-photo {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -203,6 +204,11 @@ img { display: block; max-width: 100%; }
 .section--cream { background: var(--cream); }
 .section--olive { background: var(--olive-dark); }
 
+/* Meet Sahar — olive split with light text */
+.section--olive h2 { color: #fff; }
+.section--olive .prose p { color: #fff; }
+.section--olive .split .prose { margin-top: 32px; }
+
 .eyebrow {
   font-size: 12px;
   letter-spacing: 3px;
@@ -249,22 +255,40 @@ h2 { font-size: 48px; line-height: 66px; }
 .split__media {
   aspect-ratio: 496 / 500;
 }
-.herd-media {
-  position: relative;
-  aspect-ratio: auto;
-  height: 320px;
+/* ---------- The Herd — horse profile cards ---------- */
+.herd-profiles {
   display: flex;
-  align-items: flex-start;
+  gap: 40px;
   justify-content: center;
+  margin-top: 64px;
 }
-.herd-media .media-photo {
-  position: absolute;
-  width: 45%;
-  height: auto;
-  aspect-ratio: 242 / 256;
+.herd-profile {
+  flex: 0 1 338px;
+  display: flex;
+  flex-direction: column;
 }
-.herd-media .media-photo:first-child { left: 0; top: 0; }
-.herd-media .media-photo:last-child { left: 38%; top: 10%; }
+.herd-profile__media {
+  aspect-ratio: 338 / 358;
+  overflow: hidden;
+}
+.herd-profile__media .media-photo { border-radius: 0; }
+.herd-profile__caption {
+  background: #fff;
+  padding: 8px 16px 16px;
+}
+.herd-profile__name {
+  font-size: 32px;
+  line-height: 49.5px;
+  color: var(--green-dark);
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #e5dac8;
+}
+.herd-profile__text {
+  font-size: 16px;
+  line-height: 32px;
+  color: #262619;
+}
 
 /* ---------- Cards (Services) ---------- */
 .cards {
@@ -452,7 +476,8 @@ body.intro-complete .site {
      can't push the page wider than the screen (horizontal overflow). */
   .split__media { flex: none; width: 100%; }
   .cards { flex-direction: column; }
-  .herd-media { width: 100%; margin-top: 40px; }
+  .herd-profiles { flex-direction: column; align-items: center; }
+  .herd-profile { flex: 1 1 auto; width: 100%; max-width: 360px; }
 }
 
 @media (max-width: 768px) {
