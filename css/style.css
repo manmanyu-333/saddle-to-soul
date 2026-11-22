@@ -228,7 +228,12 @@ img { display: block; max-width: 100%; }
 /* Who it's for — full-bleed painting, copy in the sky */
 .section--who {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   min-height: 756px;
+  /* Extra room below the copy so it sits lower in the sky without covering the horse. */
+  padding-bottom: 280px;
   background: #d7ddd4;
 }
 .section__wash {
@@ -240,7 +245,7 @@ img { display: block; max-width: 100%; }
   position: relative;
   z-index: 1;
   max-width: 646px;
-  margin: 23px auto 0;
+  margin: 0 auto;
   text-align: center;
 }
 .section--who h2 {
@@ -437,7 +442,7 @@ h2 { font-size: 48px; line-height: 66px; }
   gap: 12px;
 }
 .footer__bottom p {
-  color: var(--text-body);
+  color: #fff;
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
@@ -593,19 +598,26 @@ body.intro-complete .site {
   .hero__content p { margin-left: auto; margin-right: auto; }
   /* Horses sit on the right of the painting — keep them in the crop. */
   .hero__media img { object-position: 72% 62%; }
-  .section--who { min-height: 680px; }
   .hero__content h1 { font-size: 36px; line-height: 44px; }
   .hero__content p { font-size: 16px; line-height: 26px; padding: 20px 0 32px; }
   .prose--inter p.pull-quote { font-size: 22px; line-height: 44px; }
   h2 { font-size: 32px; line-height: 40px; }
   .section { padding: 80px 0; }
+  .section.section--who {
+    min-height: 820px;
+    padding-bottom: 280px;
+  }
   .container { padding: 0 24px; }
   .footer__grid { gap: 40px; }
   .footer__bottom { flex-direction: column; }
 }
 
-/* Narrow phones: keep the who-it's-for copy in the sky and the
-   figures below it, instead of letting the longer wrap cover the horse. */
+/* Phones: a shorter section pulls the painted figures up, and the
+   bottom padding keeps the centred copy in the sky above them. */
 @media (max-width: 560px) {
-  .section--who { min-height: 1080px; }
+  .section.section--who {
+    min-height: 852px;
+    padding-top: 56px;
+    padding-bottom: 260px;
+  }
 }
