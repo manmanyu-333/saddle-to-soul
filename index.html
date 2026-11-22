@@ -6,7 +6,7 @@
 <title>Saddle to Soul — Equine Assisted Therapy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=Inter:wght@300;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="intro-active">
@@ -31,14 +31,14 @@
 <header class="nav">
   <div class="container nav__inner">
     <a href="#" class="nav__brand">
-      <img src="assets/logo-light.png" alt="Saddle to Soul logo" class="nav__logo">
+      <img src="assets/nav-monogram.svg" alt="" class="nav__logo" width="26" height="41">
       <span class="nav__brand-text">Saddle to Soul</span>
     </a>
     <nav class="nav__links">
       <a href="#services">Services</a>
       <a href="#herd">The Herd</a>
       <a href="#about">About</a>
-      <a href="#" class="btn btn--outline">Book free 15 min chat</a>
+      <a href="#" class="btn btn--outline">Book a chat</a>
     </nav>
     <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -50,53 +50,53 @@
 
   <!-- Hero -->
   <section class="hero">
-    <img src="assets/hero.jpg" alt="Silhouette of a horse in a field at dawn" class="hero__bg" data-placeholder="hero-background">
-    <div class="hero__overlay"></div>
+    <picture class="hero__media">
+      <source type="image/webp" srcset="assets/hero-landscape-1600.webp 1600w, assets/hero-landscape.webp 2752w" sizes="100vw">
+      <img src="assets/hero-landscape.jpg" srcset="assets/hero-landscape-1600.jpg 1600w, assets/hero-landscape.jpg 2752w" sizes="100vw" alt="Three horses on a ridge beneath a painted open sky" width="2752" height="1536" fetchpriority="high">
+    </picture>
     <div class="container hero__content">
-      <h1>Ground. Guide. Grow.</h1>
-      <p>Healing doesn't always look like a room and a couch. Sometimes it looks like open sky, the sound of hooves, and a horse that already knows how you're feeling before you do.</p>
-      <a href="#" class="btn btn--cta">Book free 15 min chat</a>
+      <h1>Where healing and growth meets open sky</h1>
+      <p>Healing doesn't always look like four walls and a couch. Sometimes it looks like open sky, the sound of hooves, and a horse that knows how you're feeling before you do.</p>
+      <a href="#" class="btn btn--cta">Book a chat</a>
     </div>
   </section>
 
   <!-- The Practice -->
   <section class="section section--cream-light">
     <div class="container">
-      <div class="text-block text-block--center">
+      <div class="text-block text-block--center practice">
         <p class="eyebrow">The Practice</p>
         <h2>What is equine assisted therapy?</h2>
-        <div class="divider divider--center"></div>
-        <div class="prose">
-          <p>Horses can read the room better than most people. They sense your heart rate, your breath, your body language, and they respond to all of it — honestly and without judgment.</p>
-          <p>That feedback becomes the session. When a horse shifts away or moves closer, that's information. No performance required. No script to follow.</p>
-          <p>It's an evidence-based approach used around the world, and it works especially well for people who struggle to access or articulate what they're carrying.</p>
+        <div class="prose prose--inter">
+          <p>Horses can sense your heart rate, breath, body language, and they respond to all of it - honestly and without judgment.</p>
+          <p class="pull-quote">The feedback becomes the session.</p>
+          <p>No performance required. No script to follow. It's an evidence-based approach used around the world, and it works especially well for people who struggle to access or articulate what they're carrying.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Who It's For -->
-  <section class="section section--cream">
+  <!-- Who it's for -->
+  <section class="section section--who" aria-labelledby="who-heading">
+    <picture class="section__media">
+      <source type="image/webp" srcset="assets/who-its-for-landscape-1600.webp 1600w, assets/who-its-for-landscape.webp 2752w" sizes="100vw">
+      <img src="assets/who-its-for-landscape.jpg" srcset="assets/who-its-for-landscape-1600.jpg 1600w, assets/who-its-for-landscape.jpg 2752w" sizes="100vw" alt="A person standing with a horse above a painted river valley" width="2752" height="1536">
+    </picture>
+    <div class="section__wash" aria-hidden="true"></div>
     <div class="container">
-      <div class="split">
-        <div class="split__media">
-          <img src="assets/who-its-for.jpg" alt="Two horses being groomed under the shelter at the farm" class="media-photo" data-placeholder="who-its-for-image">
-        </div>
-        <div class="split__text">
-          <p class="eyebrow">Who It's For</p>
-          <h2>For anyone who's feeling stuck</h2>
-          <div class="divider"></div>
-          <div class="prose">
-            <p>The ones who feel overwhelmed, shut down, or disconnected from the people around them. Anyone carrying depression, anxiety, ADHD, autism, trauma, or PTSD, whether it's been named or not. Kids who can't settle in a normal setting. Adults who've tried the usual things and kept hitting a wall.</p>
-            <p>If talking hasn't been enough, or if sitting across from a stranger in an office feels like too much, this is different. And for a lot of people who are drawn to nature and horses, it's what finally works.</p>
-          </div>
+      <div class="who__copy">
+        <h2 id="who-heading">For anyone who's feeling stuck</h2>
+        <div class="prose prose--who">
+          <p>For anyone feeling overwhelmed or disconnected.</p>
+          <p>Anyone carrying depression, anxiety, ADHD, autism, trauma, or PTSD, whether it's been named or not. Kids who can't settle. Adults who have hit a wall.</p>
+          <p>If sitting across from a stranger in an office feels like too much, this is different. And for those who are drawn to nature and horses, it's what finally works.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Services -->
-  <section id="services" class="section section--cream-light">
+  <section id="services" class="section section--cream-light section--services">
     <div class="container">
       <div class="text-block text-block--center text-block--wide">
         <p class="eyebrow">Services</p>
@@ -109,7 +109,6 @@
             <h3>Equine Assisted Therapy</h3>
             <p class="card__text">60-minute sessions on the farm in Doreen. Walk alongside a horse, groom them, or simply be near them. No riding. Just presence, and exploration of what it brings up.</p>
           </div>
-          <a href="#" class="link-arrow">Learn more →</a>
         </div>
         <div class="card">
           <div class="card__body">
@@ -117,7 +116,6 @@
             <h3>In-Nature Talks</h3>
             <p class="card__text">Traditional talk therapy, outside. Among the bush and farmland of Doreen and Hurstbridge, with a private space available to process and relax.</p>
           </div>
-          <a href="#" class="link-arrow">Learn more →</a>
         </div>
         <div class="card">
           <div class="card__body">
@@ -125,32 +123,34 @@
             <h3>Wellness Consulting</h3>
             <p class="card__text">Not sure what kind of support fits? Sahar can help you figure that out, and refer you on if equine therapy isn't the right match right now.</p>
           </div>
-          <a href="#" class="link-arrow">Learn more →</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- About Sahar -->
-  <section id="about" class="section section--olive">
+  <section id="about" class="section section--about">
     <div class="container">
       <div class="split">
         <div class="split__text">
-          <p class="eyebrow eyebrow--light">About Sahar</p>
+          <p class="eyebrow">About Sahar</p>
           <h2>Built by someone who needed it.</h2>
           <div class="prose">
             <p>Over a decade in criminal justice. A psychology background. And a personal experience of witnessing what horses can do for a person in a hard place. Saddle to Soul exists because Sahar wanted to expand beyond the confines of four-walled therapy room, so she built something different.</p>
           </div>
         </div>
         <div class="split__media">
-          <img src="assets/sahar-bg.png" alt="Sahar resting in a field alongside one of the rescue horses" class="media-photo">
+          <picture>
+            <source type="image/webp" srcset="assets/about-sahar-1100.webp 1100w, assets/about-sahar.webp 1800w" sizes="(max-width: 900px) 100vw, 496px">
+            <img src="assets/about-sahar.jpg" srcset="assets/about-sahar-1100.jpg 1100w, assets/about-sahar.jpg 1800w" sizes="(max-width: 900px) 100vw, 496px" alt="Sahar lying in the grass beside a white horse" class="media-photo" width="1800" height="1044">
+          </picture>
         </div>
       </div>
     </div>
   </section>
 
   <!-- The Herd -->
-  <section id="herd" class="section section--cream">
+  <section id="herd" class="section section--cream-light section--herd">
     <div class="container">
       <div class="text-block text-block--center">
         <p class="eyebrow">The Herd</p>
@@ -191,7 +191,7 @@
     <div class="footer__grid">
       <div class="footer__brand">
         <div class="nav__brand">
-          <img src="assets/logo-light.png" alt="Saddle to Soul logo" class="nav__logo nav__logo--small">
+          <img src="assets/nav-monogram.svg" alt="" class="nav__logo" width="26" height="41">
           <span class="nav__brand-text">Saddle to Soul</span>
         </div>
         <p>Equine assisted therapy and nature-based counselling in Doreen, Victoria.</p>
@@ -207,7 +207,7 @@
         <p class="eyebrow eyebrow--tan">Get in Touch</p>
         <p class="footer__text">Doreen, Victoria</p>
         <p class="footer__text">All sessions begin with a free 15-minute phone consultation.</p>
-        <a href="#" class="btn btn--cta">Book free 15 min chat</a>
+        <a href="#" class="btn btn--cream">Book a chat</a>
       </div>
     </div>
     <div class="footer__bottom">
